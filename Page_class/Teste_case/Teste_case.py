@@ -4,6 +4,8 @@ import unittest
 import sys
 # base_path = "C://Users/elsys/Documents/pycharm_robot/basic_python"
 # sys.path.append(base_path)
+# (venv) C:\Users\elsys\Documents\pycharm_robot\POM_python>python -m unittest Page_class.Teste_case.Teste_case.LoginTest
+from selenium.webdriver.chrome.options import Options
 
 from ..Login_page_POM import LoginPage
 from ..Home_page import HomePage
@@ -14,9 +16,13 @@ class LoginTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.driver = webdriver.Chrome(executable_path="C://chromedriver.exe")
+        chrome_options = Options()
+        # para teste com navegador aberto, comente a linha abaixo
+        chrome_options.add_argument("--headless")
+        cls.driver = webdriver.Chrome(options=chrome_options)
+        # cls.driver = webdriver.Chrome(executable_path="C://chromedriver.exe")
         cls.driver.implicitly_wait(10)
-        cls.driver.maximize_window()
+        # cls.driver.maximize_window()
 
     def test_login_valid(self):
         driver = self.driver
