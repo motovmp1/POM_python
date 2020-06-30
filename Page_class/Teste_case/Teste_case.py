@@ -6,6 +6,7 @@ import sys
 # sys.path.append(base_path)
 # (venv) C:\Users\elsys\Documents\pycharm_robot\POM_python>python -m unittest Page_class.Teste_case.Teste_case.LoginTest
 from selenium.webdriver.chrome.options import Options
+import HtmlTestRunner
 
 from ..Login_page_POM import LoginPage
 from ..Home_page import HomePage
@@ -51,4 +52,4 @@ class LoginTest(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output="C:/Users/elsys/Documents/pycharm_robot/POM_python/report"))
